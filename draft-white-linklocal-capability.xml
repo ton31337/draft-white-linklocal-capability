@@ -129,9 +129,8 @@ in an OPEN message should send this capability only when:
                interface-specific next hops for its routing table.</t>
      </list>
 The presence of this capability does not affect the support of global
-IPv6 only (16 bytes next hop) and global IPv6 combined with link-
-local IPv6 (32 bytes next hop), which should continue to be supported
-as before.
+IPv6 only (16 bytes next hop) and global IPv6 combined with link-local
+IPv6 (32 bytes next hop), which should continue to be supported as before.
 
 The Capability Code for this capability is specified in the IANA
 Considerations section of this document.  The Capability Length field
@@ -152,10 +151,9 @@ received.</t>
 an additional knob for whatever variety of inconsistent implementations they
 want to deal with.</t>
 
-<t>A BGP speaker that is willing to use (send and receive) only link-
-local addresses as next hops with a peer SHOULD advertise the
-Link-Local Next Hop Capability to the peer using BGP Capabilities
-advertisement.</t>
+<t>A BGP speaker that is willing to use (send and receive) only link-local
+addresses as next hops with a peer SHOULD advertise the Link-Local Next Hop
+Capability to the peer using BGP Capabilities advertisement.</t>
 
 <t>The peers have the flexibility to include both link-local and global
 next hops or link-local only next hop.</t>

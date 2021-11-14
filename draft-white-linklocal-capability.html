@@ -493,11 +493,11 @@
 <li>The implementation is capable of processing link-local address next hops with the help of peer interface binding to come up with interface-specific next hops for its routing table.</li>
 </ol>
 
-<p> The presence of this capability does not affect the support of global IPv6 only (16 bytes next hop) and global IPv6 combined with link- local IPv6 (32 bytes next hop), which should continue to be supported as before.  The Capability Code for this capability is specified in the IANA Considerations section of this document.  The Capability Length field of this capability is 0.</p>
+<p> The presence of this capability does not affect the support of global IPv6 only (16 bytes next hop) and global IPv6 combined with link-local IPv6 (32 bytes next hop), which should continue to be supported as before.  The Capability Code for this capability is specified in the IANA Considerations section of this document.  The Capability Length field of this capability is 0.</p>
 <p id="rfc.section.2.p.2">The advantage of using this capability is that it can let two conforming implementations know that they aren't talking to <a href="#buggy" class="xref">[buggy]</a> implementations with <a href="#unknown" class="xref">[unknown]</a> behaviors.  Implementations are inconsistently broken, and can't readily change their default behavior.</p>
 <p id="rfc.section.2.p.3">By announcing the capability and having the capability negotiated, implementations don't need to set interoperational knobs to get a particular set of fields populated a particular way or worry about how they are received.</p>
 <p id="rfc.section.2.p.4">Implementations that don't support this new capability would still require an additional knob for whatever variety of inconsistent implementations they want to deal with.</p>
-<p id="rfc.section.2.p.5">A BGP speaker that is willing to use (send and receive) only link- local addresses as next hops with a peer SHOULD advertise the Link-Local Next Hop Capability to the peer using BGP Capabilities advertisement.</p>
+<p id="rfc.section.2.p.5">A BGP speaker that is willing to use (send and receive) only link-local addresses as next hops with a peer SHOULD advertise the Link-Local Next Hop Capability to the peer using BGP Capabilities advertisement.</p>
 <p id="rfc.section.2.p.6">The peers have the flexibility to include both link-local and global next hops or link-local only next hop.</p>
 <h1 id="rfc.section.3">
 <a href="#rfc.section.3">3.</a> Changes to BGP Next Hop Attribute to Support Link-Local on Point-to-Point</h1>
