@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>Link-Local Next Hop Capability for BGP</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+      a.info {
+          /* This is the key. */
+          position: relative;
+          z-index: 24;
+          text-decoration: none;
+      }
+      a.info:hover {
+          z-index: 25;
+          color: #FFF; background-color: #900;
+      }
+      a.info span { display: none; }
+      a.info:hover span.info {
+          /* The span will display just on :hover state. */
+          display: block;
+          position: absolute;
+          font-size: smaller;
+          top: 2em; left: -5em; width: 15em;
+          padding: 2px; border: 1px solid #333;
+          color: #900; background-color: #EEE;
+          text-align: left;
+      }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  max-width: 55em;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+
+  <link href="#rfc.toc" rel="Contents">
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
+<link href="#rfc.section.2" rel="Chapter" title="2 Link-Local Next Hop Capability">
+<link href="#rfc.section.3" rel="Chapter" title="3 Changes to BGP Next Hop Attribute to Support Link-Local on Point-to-Point">
+<link href="#rfc.section.4" rel="Chapter" title="4 Receiver Processing of IPv6 Link-Local Forwarding Addresses">
+<link href="#rfc.section.5" rel="Chapter" title="5 Error handling">
+<link href="#rfc.section.6" rel="Chapter" title="6 Acknowledgements">
+<link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations">
+<link href="#rfc.section.8" rel="Chapter" title="8 Security Considerations">
+<link href="#rfc.references" rel="Chapter" title="9 References">
+<link href="#rfc.references.1" rel="Chapter" title="9.1 Normative References">
+<link href="#rfc.references.2" rel="Chapter" title="9.2 Informative References">
+<link href="#rfc.authors" rel="Chapter">
+
+
+  <meta name="generator" content="xml2rfc version 2.40.0 - https://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="White, R. and D. Abraitis" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-white-linklocal-capability-00" />
+  <meta name="dct.issued" scheme="ISO8601" content="2021-11-14" />
+  <meta name="dct.abstract" content="BGP, described in , was originally designed to provide reachability between domains and between the edges of a domain.  As such, BGP assumes the next hop towards any reachable destination may not reside on the advertising speaker, but rather may either be through a router connected to the same subnet as the speaker, or through a router only reachable by traversing multiple hops through the network. Because of this, BGP does not recognize the use of IPv6 link-local addresses, as described in , as a valid next hop for forwarding purposes. However, BGP speakers are now often deployed on point-to-point links in networks where multihop reachability of any kind is not assumed or desired (all next hops are assumed to be the speaker reachable through a directly connected point-to-point link). This is common, for instance, in data center fabrics. In these situations, a global IPv6 address is not required for the advertisement of reachability information; in fact, providing global IPv6 addresses in these kinds of networks can be detrimental to Zero Touch Provisioning (ZTP). This draft standardizes the operation of BGP over a point-to-point link using link-local IPv6 addressing only. " />
+  <meta name="description" content="BGP, described in , was originally designed to provide reachability between domains and between the edges of a domain.  As such, BGP assumes the next hop towards any reachable destination may not reside on the advertising speaker, but rather may either be through a router connected to the same subnet as the speaker, or through a router only reachable by traversing multiple hops through the network. Because of this, BGP does not recognize the use of IPv6 link-local addresses, as described in , as a valid next hop for forwarding purposes. However, BGP speakers are now often deployed on point-to-point links in networks where multihop reachability of any kind is not assumed or desired (all next hops are assumed to be the speaker reachable through a directly connected point-to-point link). This is common, for instance, in data center fabrics. In these situations, a global IPv6 address is not required for the advertisement of reachability information; in fact, providing global IPv6 addresses in these kinds of networks can be detrimental to Zero Touch Provisioning (ZTP). This draft standardizes the operation of BGP over a point-to-point link using link-local IPv6 addressing only. " />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+<td class="left">Interdomain Routing</td>
+<td class="right">R. White</td>
+</tr>
+<tr>
+<td class="left">Internet-Draft</td>
+<td class="right">Juniper Networks</td>
+</tr>
+<tr>
+<td class="left">Intended status: Standards Track</td>
+<td class="right">D. Abraitis</td>
+</tr>
+<tr>
+<td class="left">Expires: May 18, 2022</td>
+<td class="right">Hostinger</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">November 14, 2021</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">Link-Local Next Hop Capability for BGP<br />
+  <span class="filename">draft-white-linklocal-capability-00</span></p>
+  
+  <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
+<p>BGP, described in <a href="#RFC4271" class="xref">[RFC4271]</a>, was originally designed to provide reachability between domains and between the edges of a domain.  As such, BGP assumes the next hop towards any reachable destination may not reside on the advertising speaker, but rather may either be through a router connected to the same subnet as the speaker, or through a router only reachable by traversing multiple hops through the network. Because of this, BGP does not recognize the use of IPv6 link-local addresses, as described in <a href="#RFC4291" class="xref">[RFC4291]</a>, as a valid next hop for forwarding purposes.</p>
+<p>However, BGP speakers are now often deployed on point-to-point links in networks where multihop reachability of any kind is not assumed or desired (all next hops are assumed to be the speaker reachable through a directly connected point-to-point link). This is common, for instance, in data center fabrics. In these situations, a global IPv6 address is not required for the advertisement of reachability information; in fact, providing global IPv6 addresses in these kinds of networks can be detrimental to Zero Touch Provisioning (ZTP).</p>
+<p>This draft standardizes the operation of BGP over a point-to-point link using link-local IPv6 addressing only.</p>
+<h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on May 18, 2022.</p>
+<h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
+<p>Copyright (c) 2021 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a>
+</li>
+<li>2.   <a href="#rfc.section.2">Link-Local Next Hop Capability</a>
+</li>
+<li>3.   <a href="#rfc.section.3">Changes to BGP Next Hop Attribute to Support Link-Local on Point-to-Point</a>
+</li>
+<li>4.   <a href="#rfc.section.4">Receiver Processing of IPv6 Link-Local Forwarding Addresses</a>
+</li>
+<li>5.   <a href="#rfc.section.5">Error handling</a>
+</li>
+<li>6.   <a href="#rfc.section.6">Acknowledgements</a>
+</li>
+<li>7.   <a href="#rfc.section.7">IANA Considerations</a>
+</li>
+<li>8.   <a href="#rfc.section.8">Security Considerations</a>
+</li>
+<li>9.   <a href="#rfc.references">References</a>
+</li>
+<ul><li>9.1.   <a href="#rfc.references.1">Normative References</a>
+</li>
+<li>9.2.   <a href="#rfc.references.2">Informative References</a>
+</li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a>
+</li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1">
+<a href="#rfc.section.1">1.</a> Introduction</h1>
+<p id="rfc.section.1.p.1">BGP, described in <a href="#RFC4271" class="xref">[RFC4271]</a>, was originally designed to provide reachability between domains and between the edges of a domain.  As such, BGP assumes the next hop towards any reachable destination may not reside on the advertising speaker, but rather may either be through a router connected to the same subnet as the speaker, or through a router only reachable by traversing multiple hops through the network. Because of this, BGP does not recognize the use of IPv6 link-local addresses, as described in <a href="#RFC4271" class="xref">[RFC4271]</a>, as a valid next hop for forwarding purposes.</p>
+<p id="rfc.section.1.p.2">However, BGP speakers are now often deployed on point-to-point links in networks where multihop reachability of any kind is not assumed or desired (all next hops are assumed to be the speaker reachable through a directly connected point-to-point link). This is common, for instance, in data center fabrics. In these situations, a global IPv6 address is not required for the advertisement of reachability information; in fact, providing global IPv6 addresses in these kinds of networks can be detrimental to Zero Touch Provisioning (ZTP).</p>
+<p id="rfc.section.1.p.3">Such BGP deployment models require BGP to run on each link, and any ease or simplification of BGP configuration can result in simplifying orchestration and configuration management.  This proposal is a step in that direction.</p>
+<p id="rfc.section.1.p.4">With the requirement of any global interface address being removed by this new capability, BGP neighbor configuration can be further simplified by making it (look) address-family independent.  E.g BGP can just take interface name for the peer config and link-local IPv6 address of the peer can be learned via a discovery protocol running on the link or by an out-of-band tool.  In essence, link-local next hop in combination with <a href="#RFC5549" class="xref">[RFC5549]</a> makes it possible to achieve an unnumbered interface-like solution <a href="#RFC5309" class="xref">[RFC5309]</a> in BGP.</p>
+<h1 id="rfc.section.2">
+<a href="#rfc.section.2">2.</a> Link-Local Next Hop Capability</h1>
+<p id="rfc.section.2.p.1">The Link-Local Next Hop capability is a new BGP capability. A BGP speaker that supports capabilities advertisement <a href="#RFC5492" class="xref">[RFC5492]</a> in an OPEN message should send this capability only when: </p>
+
+<ol>
+<li>It is capable of sending link-local IPv6 address as the only next hop address for a route.</li>
+<li>The implementation is capable of processing link-local address next hops with the help of peer interface binding to come up with interface specific next hops for its routing table.</li>
+</ol>
+
+<p> The presence of this capability does not affect the support of global IPv6 only (16 bytes next hop) and global IPv6 combined with link- local IPv6 (32 bytes next hop), which should continue to be supported as before.  The Capability Code for this capability is specified in the IANA Considerations section of this document.  The Capability Length field of this capability is 0.</p>
+<p id="rfc.section.2.p.2">The advantage of using this capability is that it can let two conforming implementations know that they aren't talking to <a href="#buggy" class="xref">[buggy]</a> implementations with <a href="#unknown" class="xref">[unknown]</a> behaviors.  Implementations are inconsistently broken, and can't readily change their default behavior.</p>
+<p id="rfc.section.2.p.3">By announcing the capability and having the capability negotiated, implementations don't need to set interoperational knobs to get a particular set of fields populated a particular way or worry about how they are received.</p>
+<p id="rfc.section.2.p.4">Implementations that don't support this new capability would still require an additional knob for whatever variety of inconsistent implementations they want to deal with.</p>
+<p id="rfc.section.2.p.5">A BGP speaker that is willing to use (send and receive) only link- local addresses as next hops with a peer SHOULD advertise the Link-Local Next Hop Capability to the peer using BGP Capabilities advertisement.</p>
+<p id="rfc.section.2.p.6">The peers have the flexibility to include both link-local and global next hops or link-local only next hop.</p>
+<h1 id="rfc.section.3">
+<a href="#rfc.section.3">3.</a> Changes to BGP Next Hop Attribute to Support Link-Local on Point-to-Point</h1>
+<p><a href="#RFC2545" class="xref">[RFC2545]</a>, section 2, notes link-local IPv6 addresses are not generally suitable for use in the Next Hop field of the MP_REACH_NLRI.  In order to support the many uses of link-local addresses, however, <a href="#RFC2545" class="xref">[RFC2545]</a> constructs the Next Hop field in IPv6 route advertisements by setting the length of the field to 32, and including both a link-local and global IPv6 address in the resulting enlarged field.  In this way, the receiving BGP speaker can use the global IPv6 address to build local forwarding information, and the link-local address for ICMPv6 redirects, etc. <a href="#RFC2545" class="xref">[RFC2545]</a> does not, however, provide an explanation for situations where there is only a link-local IPv6 address in the Next Hop field of the MP_REACH_NLRI. The result is each implementation that supports link-local peering along with forwarding to a link-local address has implemented the construction of the Next Hop field in the MP_REACH_NLRI when there is only a link-local address available in slightly different ways.</p>
+<p id="rfc.section.3.p.2">If an implementation intends to send a single link-local forwarding address in the Next Hop field of the MP_REACH_NLRI, it MUST set the length of the Next Hop field to 16 and include only the IPv6 link-local address in the Next Hop field.</p>
+<p id="rfc.section.3.p.3">If an implementation intends to send both a link-local and global IPv6 forwarding address in the Next Hop field of the MP_REACH_NLRI, it MUST set the length of the Next Hop field to 32 and include both the IPv6 link-local and global IPv6 forwarding addresses in the Next Hop field. If both link local and global IPv6 forwarding addresses are carried in the Next Hop Field, the speaker SHOULD provide a local configuration option to determine which address is preferred for forwarding.</p>
+<p id="rfc.section.3.p.4">For internal BGP peers configured as a route-reflector, when route-reflector isn't configured to be in the data-path, the proposed link-local (only) next hops MUST not be reflected.</p>
+<p id="rfc.section.3.p.5">Single (only) link-local next hop address needs to always be reset as next hop self when passed to another link.</p>
+<h1 id="rfc.section.4">
+<a href="#rfc.section.4">4.</a> Receiver Processing of IPv6 Link-Local Forwarding Addresses</h1>
+<p id="rfc.section.4.p.1">On receiving an MP_REACH_NLRI with a Next Hop length of 16, implementations SHOULD form the forwarding information using the IPv6 next hop contained in the Next Hop field, regardless of whether it is a link-local or globally reachable IPv6 address.</p>
+<p id="rfc.section.4.p.2">Implementations MAY check the validity of any IPv6 link-local address used to calculate forwarding information by insuring the address is in the local neighbor table for the interface on which the BGP update was received (or through which the BGP speaker from which the update was received is reachable). There MUST be a configuration option to enable/disable this check.</p>
+<p id="rfc.section.4.p.3">Note: It is possible that checking the IPv6 neighbor table for the existence or validity of a link-local next hop may make instances where a link is being overwhelmed through some form of Denial of Service (DoS) attack worse than they would otherwise be. If the IPv6 neighbor cache is overrun in a way that causes the link-local address being used for BGP peering to be removed from the table, which is possible through an on-link DoS attack, any fresh BGP update will cause the entire peering session to fail if the implementation is checking the validity of link-local next hops as described above. Operators should carefully assess the use of validation against the local IPv6 neighbor table to determine if it is appropriate for any particular peering session.</p>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> Error handling</h1>
+<p id="rfc.section.5.p.1">A BGP speaker receiving an MP_REACH_NLRI with the length of the Next Hop Field set to 32, where the update contains anything other than a link-local IPv6 address and a global IPv6 address, SHOULD consider this a malformed UPDATE message, and proceed as described in the following paragraphs. In order to support backwards compatibility with existing implementations, an implementation MAY ignore a second link-local IPv6 address or 0::0/0 included with an IPv6 link-local address when the length of the Next Hop Field is set to 32; in this case, the implementation SHOULD report the existence of this additional information so the operator can correct the sending BGP implementation.</p>
+<p id="rfc.section.5.p.2">If the Next Hop field is malformed, the implementation MUST handle the mailformed UPDATE message using the approach of "treat-as-withdraw", as described in section 7.3 of <a href="#RFC7606" class="xref">[RFC7606]</a>. It MAY send a NOTIFICATION message as described in section 4 of <a href="#RFC4271" class="xref">[RFC4271]</a>, using the UPDATE error message code (8 - Invalid NEXT_HOP Attribute) indicating there is an invalid NEXT_HOP field</p>
+<p id="rfc.section.5.p.3">If the Next Hop field is properly formed, but the link-local next hop is not reachable (as determined by an examination of the IPv6 neighbor table), the implementation MAY handle the mailformed UPDATE message using the approach of "treat-as-withdraw", as described in section 7.3 of <a href="#RFC7606" class="xref">[RFC7606]</a> (see note above on checking the local neighbor table for the correctness of the next hop). The implementation MAY send a NOTIFICATION message as described in section 4 of <a href="#RFC4271" class="xref">[RFC4271]</a> using the UPDATE error message code (TBA), indicating a link-local address was included in the MP_REACH_NLRI, but the link-local address included cannot be reached. As this could indicate a security breach of some type (see the security considerations section below), the operator SHOULD have a local configuration option to terminate the peering session until manual intervention is initiated.</p>
+<h1 id="rfc.section.6">
+<a href="#rfc.section.6">6.</a> Acknowledgements</h1>
+<p id="rfc.section.6.p.1">The authors would like to thank Vipin Kumar, Dinesh Dutt, Jeff Haas, and for their contributions to this draft.</p>
+<h1 id="rfc.section.7">
+<a href="#rfc.section.7">7.</a> IANA Considerations</h1>
+<p id="rfc.section.7.p.1">This memo requests IANA assign a number from the "Error Subcodes" registry defined in the IANA Considerations section in <a href="#RFC4271" class="xref">[RFC4271]</a>. This allocation will be for a new UPDATE error subcode, code (TBA), with a value of "Unreachable Link-Local Address."</p>
+<p id="rfc.section.7.p.2">Also, IANA is requested to assign a capability number to the same.</p>
+<h1 id="rfc.section.8">
+<a href="#rfc.section.8">8.</a> Security Considerations</h1>
+<p id="rfc.section.8.p.1">The mechanism described in this draft can be used as a component of ZTP for building BGP adjacencies across point-to-point links. This method, then, can be used by an attacker to form a peering session with a BGP speaker, ultimately advertising incorrect routing information into a routing domain in order to misdirect traffic or cause a denial of service. By using link-local IPv6 addresses, the attacker would be able to forego the use of a valid IPv6 address within the domain, making such an attack easier.</p>
+<p id="rfc.section.8.p.2">Operators SHOULD carefully consider security when deploying link-local addresses for BGP peering. Operators SHOULD filter traffic on links where BGP peering is not intended to occur to prevent speakers from accepting BGP session requests, as well as other mechanisms described in <a href="#RFC7454" class="xref">[RFC7454]</a>.</p>
+<p id="rfc.section.8.p.3">Operators MAY also use some form of cryptographic validation on links within the network to prevent unauthorized devices from forming BGP peering sessions. Authentication, such as the TCP authentication described in <a href="#RFC5925" class="xref">[RFC5925]</a>, may provide some relief, if it is present and correctly configured. However, the distribution and management of keys in an environment where global addresses are not present on BGP speakers may be challenging.</p>
+<p id="rfc.section.8.p.4">Operators also MAY instruct a BGP peer which has received an UPDATE with an unreachable NEXT_HOP to disable the peering session over which the invalid NEXT_HOP was received pending manual intervention.</p>
+<h1 id="rfc.references">
+<a href="#rfc.references">9.</a> References</h1>
+<h1 id="rfc.references.1">
+<a href="#rfc.references.1">9.1.</a> Normative References</h1>
+<table><tbody>
+<tr>
+<td class="reference"><b id="RFC2545">[RFC2545]</b></td>
+<td class="top">
+<a>Marques, P.</a> and <a>F. Dupont</a>, "<a href="https://tools.ietf.org/html/rfc2545">Use of BGP-4 Multiprotocol Extensions for IPv6 Inter-Domain Routing</a>", RFC 2545, DOI 10.17487/RFC2545, March 1999.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC4271">[RFC4271]</b></td>
+<td class="top">
+<a>Rekhter, Y.</a>, <a>Li, T.</a> and <a>S. Hares</a>, "<a href="https://tools.ietf.org/html/rfc4271">A Border Gateway Protocol 4 (BGP-4)</a>", RFC 4271, DOI 10.17487/RFC4271, January 2006.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC4291">[RFC4291]</b></td>
+<td class="top">
+<a>Hinden, R.</a> and <a>S. Deering</a>, "<a href="https://tools.ietf.org/html/rfc4291">IP Version 6 Addressing Architecture</a>", RFC 4291, DOI 10.17487/RFC4291, February 2006.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC5309">[RFC5309]</b></td>
+<td class="top">
+<a>Shen, N.</a> and <a>A. Zinin</a>, "<a href="https://tools.ietf.org/html/rfc5309">Point-to-Point Operation over LAN in Link State Routing Protocols</a>", RFC 5309, DOI 10.17487/RFC5309, October 2008.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC5492">[RFC5492]</b></td>
+<td class="top">
+<a>Scudder, J.</a> and <a>R. Chandra</a>, "<a href="https://tools.ietf.org/html/rfc5492">Capabilities Advertisement with BGP-4</a>", RFC 5492, DOI 10.17487/RFC5492, February 2009.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC5549">[RFC5549]</b></td>
+<td class="top">
+<a>Le Faucheur, F.</a> and <a>E. Rosen</a>, "<a href="https://tools.ietf.org/html/rfc5549">Advertising IPv4 Network Layer Reachability Information with an IPv6 Next Hop</a>", RFC 5549, DOI 10.17487/RFC5549, May 2009.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC5925">[RFC5925]</b></td>
+<td class="top">
+<a>Touch, J.</a>, <a>Mankin, A.</a> and <a>R. Bonica</a>, "<a href="https://tools.ietf.org/html/rfc5925">The TCP Authentication Option</a>", RFC 5925, DOI 10.17487/RFC5925, June 2010.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC7454">[RFC7454]</b></td>
+<td class="top">
+<a>Durand, J.</a>, <a>Pepelnjak, I.</a> and <a>G. Doering</a>, "<a href="https://tools.ietf.org/html/rfc7454">BGP Operations and Security</a>", BCP 194, RFC 7454, DOI 10.17487/RFC7454, February 2015.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC7606">[RFC7606]</b></td>
+<td class="top">
+<a>Chen, E.</a>, <a>Scudder, J.</a>, <a>Mohapatra, P.</a> and <a>K. Patel</a>, "<a href="https://tools.ietf.org/html/rfc7606">Revised Error Handling for BGP UPDATE Messages</a>", RFC 7606, DOI 10.17487/RFC7606, August 2015.</td>
+</tr>
+</tbody></table>
+<h1 id="rfc.references.2">
+<a href="#rfc.references.2">9.2.</a> Informative References</h1>
+<table><tbody>
+<tr>
+<td class="reference"><b id="buggy">[buggy]</b></td>
+<td class="top">
+<a title="Hostinger">Abraitis, D.</a>, "<a href="https://github.com/frrouting/frr/commit/606fdbb1fab98bac305dca3d19eb38b140b7c3e6">FRRouting - An example of buggy interoperational implementation</a>", 2020.</td>
+</tr>
+<tr>
+<td class="reference"><b id="unknown">[unknown]</b></td>
+<td class="top">
+<a title="CZ.NIC Labs Projects">Zajicek, O.</a>, "<a href="https://gitlab.nic.cz/labs/bird/-/commit/17de3a023f7bde293892b41bfafe5740c8553fc8">Bird - An example of buggy interoperational implementation</a>", 2020.</td>
+</tr>
+</tbody></table>
+<h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Russ White</span> 
+	  <span class="n hidden">
+		<span class="family-name">White</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Juniper Networks</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:russ@riw.us">russ@riw.us</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Donatas Abraitis</span> 
+	  <span class="n hidden">
+		<span class="family-name">Abraitis</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Hostinger</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:donatas.abraitis@gmail.com">donatas.abraitis@gmail.com</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>
