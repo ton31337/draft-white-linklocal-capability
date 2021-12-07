@@ -329,7 +329,7 @@ the invalid NEXT_HOP was received pending manual intervention.</t>
      </reference>
      <reference anchor="inconsistent" target="https://gitlab.nic.cz/labs/bird/-/commit/17de3a023f7bde293892b41bfafe5740c8553fc8">
           <front>
-               <title>Bird - An example of buggy inconsistent implementation</title>
+               <title>Bird - An example of inconsistent interoperational implementation</title>
                <author initials="O.Z." surname="Zajicek" fullname="Ondrej Zajicek">
                     <organization abbrev="CZ.NIC Labs Projects">CZ.NIC Labs Projects</organization>
                </author>

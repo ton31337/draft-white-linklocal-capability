@@ -412,8 +412,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
               commit/606fdbb1fab98bac305dca3d19eb38b140b7c3e6>.
 
    [inconsistent]
-              Zajicek, O., "Bird - An example of buggy inconsistent
-              implementation", 2020, <https://gitlab.nic.cz/labs/
+              Zajicek, O., "Bird - An example of inconsistent
+              interoperational implementation", 2020,
+              <https://gitlab.nic.cz/labs/
               bird/-/commit/17de3a023f7bde293892b41bfafe5740c8553fc8>.
 
 Authors' Addresses
@@ -428,7 +429,6 @@ Authors' Addresses
    Hostinger
 
    Email: donatas.abraitis@gmail.com
-
 
 
 
