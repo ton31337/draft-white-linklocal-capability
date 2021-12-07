@@ -132,15 +132,16 @@ The presence of this capability does not affect the support of global
 IPv6 only (16 bytes next hop) and global IPv6 combined with link-local
 IPv6 (32 bytes next hop), which should continue to be supported as before.
 
-The Capability Code for this capability is TBA (based on the procedure described 
+The Capability Code for this capability is TBA (based on the procedure described
 in the IANA Considerations section of this document). The Capability Length field
 of this capability is 0.</t>
 
 <t>The advantage of using this capability is that it can let two conforming
-implementations interoperate correctly without additional configuration, 
-in contrast to the current situation. Existing implementations of using a BGP next
-hop over an IPv6 link-local address are inconsistent, and can't readily 
-change their behavior without negative side effects.</t>
+implementations interoperate <xref target="correctly" /> without additional
+configuration, in contrast to the current situation. Existing implementations
+of using a BGP next hop over an IPv6 link-local address are
+<xref target="inconsistent" />, and can't readily change their behavior
+without negative side effects.</t>
 
 <t>A BGP speaker that is willing to use (send and receive) only link-local
 addresses as next hops with a peer SHOULD advertise the Link-Local Next Hop
@@ -317,18 +318,18 @@ the invalid NEXT_HOP was received pending manual intervention.</t>
 </references>
 
 <references title="Informative References">
-     <reference anchor="buggy" target="https://github.com/frrouting/frr/commit/606fdbb1fab98bac305dca3d19eb38b140b7c3e6">
+     <reference anchor="correctly" target="https://github.com/frrouting/frr/commit/606fdbb1fab98bac305dca3d19eb38b140b7c3e6">
           <front>
-               <title>FRRouting - An example of buggy interoperational implementation</title>
+               <title>FRRouting - An example of inconsistent interoperational implementation</title>
                <author initials="D.A." surname="Abraitis" fullname="Donatas Abraitis">
                     <organization abbrev="Hostinger">Hostinger</organization>
                </author>
                <date year="2020" />
         </front>
      </reference>
-     <reference anchor="unknown" target="https://gitlab.nic.cz/labs/bird/-/commit/17de3a023f7bde293892b41bfafe5740c8553fc8">
+     <reference anchor="inconsistent" target="https://gitlab.nic.cz/labs/bird/-/commit/17de3a023f7bde293892b41bfafe5740c8553fc8">
           <front>
-               <title>Bird - An example of buggy interoperational implementation</title>
+               <title>Bird - An example of buggy inconsistent implementation</title>
                <author initials="O.Z." surname="Zajicek" fullname="Ondrej Zajicek">
                     <organization abbrev="CZ.NIC Labs Projects">CZ.NIC Labs Projects</organization>
                </author>
