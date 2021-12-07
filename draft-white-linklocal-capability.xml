@@ -101,15 +101,15 @@ Zero Touch Provisioning (ZTP).</t>
 
 <t>Such BGP deployment models require BGP to run on each
 link, and any ease or simplification of BGP configuration can result
-in simplifying orchestration and configuration management.  This
+in simplifying orchestration and configuration management. This
 proposal is a step in that direction.</t>
 
 <t>With the requirement of any global interface address being removed by
 this new capability, BGP neighbor configuration can be further
-simplified by making it (look) address-family independent.  E.g BGP
+simplified by making it (look) address-family independent. E.g. BGP
 can just take the interface name for the peer config and link-local IPv6
 address of the peer can be learned via a discovery protocol running
-on the link or by an out-of-band tool.  In essence, link-local next
+on the link or by an out-of-band tool. In essence, link-local next
 hop in combination with <xref target="RFC5549" /> makes it possible to
 achieve an unnumbered interface-like solution <xref target="RFC5309" />
 in BGP.</t>
@@ -132,24 +132,15 @@ The presence of this capability does not affect the support of global
 IPv6 only (16 bytes next hop) and global IPv6 combined with link-local
 IPv6 (32 bytes next hop), which should continue to be supported as before.
 
-The Capability Code for this capability is specified in the IANA
-Considerations section of this document.  The Capability Length field
+The Capability Code for this capability is TBA (based on the procedure described 
+in the IANA Considerations section of this document). The Capability Length field
 of this capability is 0.</t>
 
 <t>The advantage of using this capability is that it can let two conforming
-implementations know that they aren't talking to
-<xref target="buggy" /> implementations with <xref target="unknown" /> behaviors.
-Implementations are inconsistently broken, and can't readily change their
-default behavior.</t>
-
-<t>By announcing the capability and having the capability negotiated,
-implementations don't need to set interoperational knobs to get a particular
-set of fields populated a particular way or worry about how they are
-received.</t>
-
-<t>Implementations that don't support this new capability would still require
-an additional knob for whatever variety of inconsistent implementations they
-want to deal with.</t>
+implementations interoperate correctly without additional configuration, 
+in contrast to the current situation. Existing implementations of using a BGP next
+hop over an IPv6 link-local address are inconsistent, and can't readily 
+change their behavior without negative side effects.</t>
 
 <t>A BGP speaker that is willing to use (send and receive) only link-local
 addresses as next hops with a peer SHOULD advertise the Link-Local Next Hop
@@ -194,7 +185,7 @@ address is preferred for forwarding.</t>
 isn't configured to be in the data-path, the proposed link-local (only)
 next hops MUST not be reflected.</t>
 
-<t>Single (only) link-local next hop address needs to always be reset as
+<t>A single (only) link-local next hop address needs to always be reset as
 next hop self when passed to another link.</t>
 </section>
 <!-- end of Changes to BGP Next Hop Attribute to Support Link-Local on Point-to-Point section -->
