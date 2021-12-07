@@ -5,8 +5,8 @@
 Interdomain Routing                                             R. White
 Internet-Draft                                          Juniper Networks
 Intended status: Standards Track                             D. Abraitis
-Expires: May 5, 2022                                           Hostinger
-                                                        November 1, 2021
+Expires: June 10, 2022                                         Hostinger
+                                                        December 7, 2021
 
 
                  Link-Local Next Hop Capability for BGP
@@ -53,12 +53,12 @@ Status of This Memo
 
 
 
-White & Abraitis           Expires May 5, 2022                  [Page 1]
+White & Abraitis          Expires June 10, 2022                 [Page 1]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
+Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
 
 
-   This Internet-Draft will expire on May 5, 2022.
+   This Internet-Draft will expire on June 10, 2022.
 
 Copyright Notice
 
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-White & Abraitis           Expires May 5, 2022                  [Page 2]
+White & Abraitis          Expires June 10, 2022                 [Page 2]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
+Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
 
 
    through a directly connected point-to-point link).  This is common,
@@ -165,9 +165,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
 
 
 
-White & Abraitis           Expires May 5, 2022                  [Page 3]
+White & Abraitis          Expires June 10, 2022                 [Page 3]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
+Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
 
 
    A BGP speaker that is willing to use (send and receive) only link-
@@ -221,9 +221,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
 
 
 
-White & Abraitis           Expires May 5, 2022                  [Page 4]
+White & Abraitis          Expires June 10, 2022                 [Page 4]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
+Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
 
 
 4.  Receiver Processing of IPv6 Link-Local Forwarding Addresses
@@ -277,9 +277,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
 
 
 
-White & Abraitis           Expires May 5, 2022                  [Page 5]
+White & Abraitis          Expires June 10, 2022                 [Page 5]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
+Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
 
 
    If the Next Hop field is properly formed, but the link-local next hop
@@ -333,9 +333,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
 
 
 
-White & Abraitis           Expires May 5, 2022                  [Page 6]
+White & Abraitis          Expires June 10, 2022                 [Page 6]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
+Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
 
 
    peering sessions.  Authentication, such as the TCP authentication
@@ -389,9 +389,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
 
 
 
-White & Abraitis           Expires May 5, 2022                  [Page 7]
+White & Abraitis          Expires June 10, 2022                 [Page 7]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP    November 2021
+Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
 
 
    [RFC7454]  Durand, J., Pepelnjak, I., and G. Doering, "BGP Operations
@@ -445,4 +445,4 @@ Authors' Addresses
 
 
 
-White & Abraitis           Expires May 5, 2022                  [Page 8]
+White & Abraitis          Expires June 10, 2022                 [Page 8]
