@@ -4,13 +4,15 @@
 
 Interdomain Routing                                             R. White
 Internet-Draft                                          Juniper Networks
-Intended status: Standards Track                             D. Abraitis
-Expires: June 10, 2022                                         Hostinger
-                                                        December 7, 2021
+Intended status: Standards Track                             J. Tantsura
+Expires: November 30, 2022                                     Microsoft
+                                                             D. Abraitis
+                                                               Hostinger
+                                                            May 29, 2022
 
 
                  Link-Local Next Hop Capability for BGP
-                  draft-white-linklocal-capability-00
+                  draft-white-linklocal-capability-01
 
 Abstract
 
@@ -48,21 +50,22 @@ Status of This Memo
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
+
+
+
+White, et al.           Expires November 30, 2022               [Page 1]
+
+Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+
+
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-
-
-White & Abraitis          Expires June 10, 2022                 [Page 1]
-
-Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
-
-
-   This Internet-Draft will expire on June 10, 2022.
+   This Internet-Draft will expire on November 30, 2022.
 
 Copyright Notice
 
-   Copyright (c) 2021 IETF Trust and the persons identified as the
+   Copyright (c) 2022 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -103,17 +106,17 @@ Table of Contents
    link-local addresses, as described in [RFC4271], as a valid next hop
    for forwarding purposes.
 
+
+
+
+White, et al.           Expires November 30, 2022               [Page 2]
+
+Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+
+
    However, BGP speakers are now often deployed on point-to-point links
    in networks where multihop reachability of any kind is not assumed or
    desired (all next hops are assumed to be the speaker reachable
-
-
-
-White & Abraitis          Expires June 10, 2022                 [Page 2]
-
-Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
-
-
    through a directly connected point-to-point link).  This is common,
    for instance, in data center fabrics.  In these situations, a global
    IPv6 address is not required for the advertisement of reachability
@@ -158,17 +161,17 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
    conforming implementations interoperate [correctly] without
    additional configuration, in contrast to the current situation.
    Existing implementations of using a BGP next hop over an IPv6 link-
+
+
+
+
+White, et al.           Expires November 30, 2022               [Page 3]
+
+Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+
+
    local address are [inconsistent], and can't readily change their
    behavior without negative side effects.
-
-
-
-
-
-White & Abraitis          Expires June 10, 2022                 [Page 3]
-
-Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
-
 
    A BGP speaker that is willing to use (send and receive) only link-
    local addresses as next hops with a peer SHOULD advertise the Link-
@@ -215,16 +218,16 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
    reflector isn't configured to be in the data-path, the proposed link-
    local (only) next hops MUST not be reflected.
 
+
+
+
+White, et al.           Expires November 30, 2022               [Page 4]
+
+Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+
+
    A single (only) link-local next hop address needs to always be reset
    as next hop self when passed to another link.
-
-
-
-
-White & Abraitis          Expires June 10, 2022                 [Page 4]
-
-Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
-
 
 4.  Receiver Processing of IPv6 Link-Local Forwarding Addresses
 
@@ -271,16 +274,16 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
    the malformed UPDATE message using the approach of "treat-as-
    withdraw", as described in section 7.3 of [RFC7606].  It MAY send a
    NOTIFICATION message as described in section 4 of [RFC4271], using
+
+
+
+White, et al.           Expires November 30, 2022               [Page 5]
+
+Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+
+
    the UPDATE error message code (8 - Invalid NEXT_HOP Attribute)
    indicating there is an invalid NEXT_HOP field
-
-
-
-
-White & Abraitis          Expires June 10, 2022                 [Page 5]
-
-Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
-
 
    If the Next Hop field is properly formed, but the link-local next hop
    is not reachable (as determined by an examination of the IPv6
@@ -328,16 +331,15 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
    from accepting BGP session requests, as well as other mechanisms
    described in [RFC7454].
 
+
+
+White, et al.           Expires November 30, 2022               [Page 6]
+
+Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+
+
    Operators MAY also use some form of cryptographic validation on links
    within the network to prevent unauthorized devices from forming BGP
-
-
-
-White & Abraitis          Expires June 10, 2022                 [Page 6]
-
-Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
-
-
    peering sessions.  Authentication, such as the TCP authentication
    described in [RFC5925], may provide some relief if it is present and
    correctly configured.  However, the distribution and management of
@@ -387,11 +389,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
 
 
 
-
-
-White & Abraitis          Expires June 10, 2022                 [Page 7]
+White, et al.           Expires November 30, 2022               [Page 7]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP    December 2021
+Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
 
    [RFC7454]  Durand, J., Pepelnjak, I., and G. Doering, "BGP Operations
@@ -425,6 +425,12 @@ Authors' Addresses
    Email: russ@riw.us
 
 
+   Jeff Tantsura
+   Microsoft
+
+   Email: jefftant.ietf@gmail.com
+
+
    Donatas Abraitis
    Hostinger
 
@@ -439,10 +445,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-White & Abraitis          Expires June 10, 2022                 [Page 8]
+White, et al.           Expires November 30, 2022               [Page 8]
