@@ -2,13 +2,13 @@
 
 
 
-Interdomain Routing                                             R. White
+Interdomain Routing                                           R.W. White
 Internet-Draft                                          Juniper Networks
-Intended status: Standards Track                             J. Tantsura
-Expires: November 30, 2022                                     Microsoft
-                                                             D. Abraitis
+Intended status: Standards Track                           J.T. Tantsura
+Expires: 30 November 2022                                      Microsoft
+                                                           D.A. Abraitis
                                                                Hostinger
-                                                            May 29, 2022
+                                                                May 2022
 
 
                  Link-Local Next Hop Capability for BGP
@@ -48,20 +48,22 @@ Status of This Memo
    working documents as Internet-Drafts.  The list of current Internet-
    Drafts is at https://datatracker.ietf.org/drafts/current/.
 
-   Internet-Drafts are draft documents valid for a maximum of six months
-   and may be updated, replaced, or obsoleted by other documents at any
 
 
 
-White, et al.           Expires November 30, 2022               [Page 1]
+
+
+White, et al.           Expires 30 November 2022                [Page 1]
 
 Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
 
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 30, 2022.
+   This Internet-Draft will expire on 2 November 2022.
 
 Copyright Notice
 
@@ -69,22 +71,22 @@ Copyright Notice
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
-   (https://trustee.ietf.org/license-info) in effect on the date of
-   publication of this document.  Please review these documents
-   carefully, as they describe your rights and restrictions with respect
-   to this document.  Code Components extracted from this document must
-   include Simplified BSD License text as described in Section 4.e of
-   the Trust Legal Provisions and are provided without warranty as
-   described in the Simplified BSD License.
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
 
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Link-Local Next Hop Capability  . . . . . . . . . . . . . . .   3
    3.  Changes to BGP Next Hop Attribute to Support Link-Local on
-       Point-to-Point  . . . . . . . . . . . . . . . . . . . . . . .   4
-   4.  Receiver Processing of IPv6 Link-Local Forwarding Addresses .   5
+           Point-to-Point  . . . . . . . . . . . . . . . . . . . . .   4
+   4.  Receiver Processing of IPv6 Link-Local Forwarding
+           Addresses . . . . . . . . . . . . . . . . . . . . . . . .   5
    5.  Error handling  . . . . . . . . . . . . . . . . . . . . . . .   5
    6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   6
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
@@ -104,15 +106,15 @@ Table of Contents
    through a router only reachable by traversing multiple hops through
    the network.  Because of this, BGP does not recognize the use of IPv6
    link-local addresses, as described in [RFC4271], as a valid next hop
-   for forwarding purposes.
 
 
 
-
-White, et al.           Expires November 30, 2022               [Page 2]
+White, et al.           Expires 30 November 2022                [Page 2]
 
 Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
+
+   for forwarding purposes.
 
    However, BGP speakers are now often deployed on point-to-point links
    in networks where multihop reachability of any kind is not assumed or
@@ -160,16 +162,15 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
    The advantage of using this capability is that it can let two
    conforming implementations interoperate [correctly] without
    additional configuration, in contrast to the current situation.
-   Existing implementations of using a BGP next hop over an IPv6 link-
 
 
 
-
-White, et al.           Expires November 30, 2022               [Page 3]
+White, et al.           Expires 30 November 2022                [Page 3]
 
 Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
 
+   Existing implementations of using a BGP next hop over an IPv6 link-
    local address are [inconsistent], and can't readily change their
    behavior without negative side effects.
 
@@ -220,8 +221,7 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
 
 
-
-White, et al.           Expires November 30, 2022               [Page 4]
+White, et al.           Expires 30 November 2022                [Page 4]
 
 Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
@@ -270,18 +270,22 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
    additional information so the operator can correct the sending BGP
    implementation.
 
-   If the Next Hop field is malformed, the implementation MUST handle
-   the malformed UPDATE message using the approach of "treat-as-
-   withdraw", as described in section 7.3 of [RFC7606].  It MAY send a
-   NOTIFICATION message as described in section 4 of [RFC4271], using
 
 
 
-White, et al.           Expires November 30, 2022               [Page 5]
+
+
+
+
+White, et al.           Expires 30 November 2022                [Page 5]
 
 Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
 
+   If the Next Hop field is malformed, the implementation MUST handle
+   the malformed UPDATE message using the approach of "treat-as-
+   withdraw", as described in section 7.3 of [RFC7606].  It MAY send a
+   NOTIFICATION message as described in section 4 of [RFC4271], using
    the UPDATE error message code (8 - Invalid NEXT_HOP Attribute)
    indicating there is an invalid NEXT_HOP field
 
@@ -325,18 +329,20 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
    attacker would be able to forego the use of a valid IPv6 address
    within the domain, making such an attack easier.
 
+
+
+
+
+White, et al.           Expires 30 November 2022                [Page 6]
+
+Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+
+
    Operators SHOULD carefully consider security when deploying link-
    local addresses for BGP peering.  Operators SHOULD filter traffic on
    links where BGP peering is not intended to occur to prevent speakers
    from accepting BGP session requests, as well as other mechanisms
    described in [RFC7454].
-
-
-
-White, et al.           Expires November 30, 2022               [Page 6]
-
-Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
-
 
    Operators MAY also use some form of cryptographic validation on links
    within the network to prevent unauthorized devices from forming BGP
@@ -377,6 +383,17 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
               with BGP-4", RFC 5492, DOI 10.17487/RFC5492, February
               2009, <https://www.rfc-editor.org/info/rfc5492>.
 
+
+
+
+
+
+
+White, et al.           Expires 30 November 2022                [Page 7]
+
+Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+
+
    [RFC5549]  Le Faucheur, F. and E. Rosen, "Advertising IPv4 Network
               Layer Reachability Information with an IPv6 Next Hop",
               RFC 5549, DOI 10.17487/RFC5549, May 2009,
@@ -385,14 +402,6 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
    [RFC5925]  Touch, J., Mankin, A., and R. Bonica, "The TCP
               Authentication Option", RFC 5925, DOI 10.17487/RFC5925,
               June 2010, <https://www.rfc-editor.org/info/rfc5925>.
-
-
-
-
-White, et al.           Expires November 30, 2022               [Page 7]
-
-Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
-
 
    [RFC7454]  Durand, J., Pepelnjak, I., and G. Doering, "BGP Operations
               and Security", BCP 194, RFC 7454, DOI 10.17487/RFC7454,
@@ -406,13 +415,13 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 9.2.  Informative References
 
    [correctly]
-              Abraitis, D., "FRRouting - An example of inconsistent
+              Abraitis, D.A., "FRRouting - An example of inconsistent
               interoperational implementation", 2020,
               <https://github.com/frrouting/frr/
               commit/606fdbb1fab98bac305dca3d19eb38b140b7c3e6>.
 
    [inconsistent]
-              Zajicek, O., "Bird - An example of inconsistent
+              Zajicek, O.Z., "Bird - An example of inconsistent
               interoperational implementation", 2020,
               <https://gitlab.nic.cz/labs/
               bird/-/commit/17de3a023f7bde293892b41bfafe5740c8553fc8>.
@@ -421,28 +430,19 @@ Authors' Addresses
 
    Russ White
    Juniper Networks
-
    Email: russ@riw.us
 
 
    Jeff Tantsura
    Microsoft
-
    Email: jefftant.ietf@gmail.com
 
 
    Donatas Abraitis
    Hostinger
-
    Email: donatas.abraitis@gmail.com
 
 
 
 
-
-
-
-
-
-
-White, et al.           Expires November 30, 2022               [Page 8]
+White, et al.           Expires 30 November 2022                [Page 8]
