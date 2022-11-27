@@ -15,11 +15,10 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-white-linklocal-capability-01" ipr="trust200902" consensus="true" obsoletes="" updates="" submissionType="IETF" xml:lang="en" tocInclude="true" tocDepth="4" symRefs="true" sortRefs="true" version="3">
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-white-linklocal-capability-02" ipr="trust200902" consensus="true" obsoletes="" updates="" submissionType="IETF" xml:lang="en" tocInclude="true" tocDepth="4" symRefs="true" sortRefs="true" version="3">
   <!-- xml2rfc v2v3 conversion 3.12.8 -->
   <front>
     <title>Link-Local Next Hop Capability for BGP</title>
-    <seriesInfo name="Internet-Draft" value="draft-white-linklocal-capability-01"/>
     <author fullname="Russ White" initials="R.W." surname="White">
       <organization>Juniper Networks</organization>
       <address>
@@ -47,7 +46,7 @@
         <email>donatas.abraitis@gmail.com</email>
       </address>
     </author>
-    <date month="May" year="2022"/>
+    <date year="2022"/>
     <area>Routing</area>
     <workgroup>Interdomain Routing</workgroup>
     <abstract>
@@ -171,7 +170,7 @@ the speaker SHOULD provide a local configuration option to determine which
 address is preferred for forwarding.</t>
       <t>For internal BGP peers configured as a route-reflector, when route-reflector
 isn't configured to be in the data-path, the proposed link-local (only)
-next hops MUST not be reflected.</t>
+next hops MUST NOT be reflected.</t>
       <t>A single (only) link-local next hop address needs to always be reset as
 next hop self when passed to another link.</t>
     </section>
@@ -290,8 +289,7 @@ the invalid NEXT_HOP was received pending manual intervention.</t>
       <name>References</name>
       <references>
         <name>Normative References</name>
-        <!--?rfc include="http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"?-->
-<reference anchor="RFC2545" target="https://www.rfc-editor.org/info/rfc2545" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.2545.xml">
+        <reference anchor="RFC2545" target="https://www.rfc-editor.org/info/rfc2545" xml:base="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.2545.xml">
           <front>
             <title>Use of BGP-4 Multiprotocol Extensions for IPv6 Inter-Domain Routing</title>
             <author initials="P." surname="Marques" fullname="P. Marques">

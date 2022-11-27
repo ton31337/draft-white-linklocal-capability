@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="Internet-Draft">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
@@ -30,7 +30,7 @@ detrimental to Zero Touch Provisioning (ZTP).
 link using link-local IPv6 addressing only. 
     " name="description">
 <meta content="xml2rfc 3.12.8" name="generator">
-<meta content="draft-white-linklocal-capability-01" name="ietf.draft">
+<meta content="draft-white-linklocal-capability-02" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.12.8
     Python 3.8.0
@@ -39,15 +39,15 @@ link using link-local IPv6 addressing only.
     google-i18n-address 2.5.0
     html5lib 1.1
     intervaltree 3.1.0
-    Jinja2 3.0.3
+    Jinja2 2.11.2
     kitchen 1.2.6
     lxml 4.6.4
-    MarkupSafe 2.0.1
+    MarkupSafe 2.1.1
     pycairo 1.20.1
     pycountry 20.7.3
     pyflakes 2.4.0
     PyYAML 6.0
-    requests 2.24.0
+    requests 2.28.0
     setuptools 60.9.2
     six 1.16.0
 -->
@@ -1209,11 +1209,11 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Link-Local Next Hop Capability for BGP</td>
-<td class="right">May 2022</td>
+<td class="right">November 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">White, et al.</td>
-<td class="center">Expires 30 November 2022</td>
+<td class="center">Expires 31 May 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1222,16 +1222,14 @@ li > p:last-of-type {
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Interdomain Routing</dd>
-<dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-white-linklocal-capability-01</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-05" class="published">May 2022</time>
+<time datetime="2022-11-27" class="published">27 November 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-11-30">30 November 2022</time></dd>
+<dd class="expires"><time datetime="2023-05-31">31 May 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1274,8 +1272,8 @@ link using link-local IPv6 addressing only.<a href="#section-abstract-3" class="
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
-        <h2 id="name-status-of-this-memo">
-<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        <h2 id="name-status-of-this-memo-2">
+<a href="#name-status-of-this-memo-2" class="section-name selfRef">Status of This Memo</a>
         </h2>
 <p id="section-boilerplate.1-1">
         This Internet-Draft is submitted in full conformance with the
@@ -1291,13 +1289,13 @@ link using link-local IPv6 addressing only.<a href="#section-abstract-3" class="
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 2 November 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 31 May 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
 <section id="section-boilerplate.2">
-        <h2 id="name-copyright-notice">
-<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        <h2 id="name-copyright-notice-2">
+<a href="#name-copyright-notice-2" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
             Copyright (c) 2022 IETF Trust and the persons identified as the
@@ -1316,55 +1314,55 @@ link using link-local IPv6 addressing only.<a href="#section-abstract-3" class="
 </div>
 <div id="toc">
 <section id="section-toc.1">
-        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
-<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents-2">
+<a href="#name-table-of-contents-2" class="section-name selfRef">Table of Contents</a>
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction-2" class="xref">Introduction</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-link-local-next-hop-capabil" class="xref">Link-Local Next Hop Capability</a></p>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-link-local-next-hop-capabili" class="xref">Link-Local Next Hop Capability</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-changes-to-bgp-next-hop-att" class="xref">Changes to BGP Next Hop Attribute to Support Link-Local on Point-to-Point</a></p>
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-changes-to-bgp-next-hop-attr" class="xref">Changes to BGP Next Hop Attribute to Support Link-Local on Point-to-Point</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-receiver-processing-of-ipv6" class="xref">Receiver Processing of IPv6 Link-Local Forwarding Addresses</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-receiver-processing-of-ipv6-" class="xref">Receiver Processing of IPv6 Link-Local Forwarding Addresses</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-error-handling" class="xref">Error handling</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-error-handling-2" class="xref">Error handling</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-acknowledgements-2" class="xref">Acknowledgements</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-iana-considerations-2" class="xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-security-considerations-2" class="xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-references" class="xref">References</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-references-2" class="xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-normative-references-2" class="xref">Normative References</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-informative-references-2" class="xref">Informative References</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-addresses-2" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
 </section>
 </div>
 <section id="section-1">
-      <h2 id="name-introduction">
-<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      <h2 id="name-introduction-2">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction-2" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-1-1">BGP, described in <span>[<a href="#RFC4271" class="xref">RFC4271</a>]</span>, was originally designed to
 provide reachability between domains and between the edges of a domain.
@@ -1397,8 +1395,8 @@ achieve an unnumbered interface-like solution <span>[<a href="#RFC5309" class="x
 in BGP.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
 <section id="section-2">
-      <h2 id="name-link-local-next-hop-capabil">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-link-local-next-hop-capabil" class="section-name selfRef">Link-Local Next Hop Capability</a>
+      <h2 id="name-link-local-next-hop-capabili">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-link-local-next-hop-capabili" class="section-name selfRef">Link-Local Next Hop Capability</a>
       </h2>
 <p id="section-2-1">The Link-Local Next Hop capability is a new BGP capability. A
 BGP speaker that supports capabilities advertisement <span>[<a href="#RFC5492" class="xref">RFC5492</a>]</span>
@@ -1433,8 +1431,8 @@ Capability to the peer using BGP Capabilities advertisement.<a href="#section-2-
 next hops or link-local only next hop.<a href="#section-2-6" class="pilcrow">¶</a></p>
 </section>
 <section id="section-3">
-      <h2 id="name-changes-to-bgp-next-hop-att">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-changes-to-bgp-next-hop-att" class="section-name selfRef">Changes to BGP Next Hop Attribute to Support Link-Local on Point-to-Point</a>
+      <h2 id="name-changes-to-bgp-next-hop-attr">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-changes-to-bgp-next-hop-attr" class="section-name selfRef">Changes to BGP Next Hop Attribute to Support Link-Local on Point-to-Point</a>
       </h2>
 <p id="section-3-1"><span>[<a href="#RFC2545" class="xref">RFC2545</a>]</span>, section 2, notes link-local IPv6 addresses are
 not generally suitable for use in the Next Hop field of the MP_REACH_NLRI.
@@ -1464,13 +1462,13 @@ the speaker SHOULD provide a local configuration option to determine which
 address is preferred for forwarding.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">For internal BGP peers configured as a route-reflector, when route-reflector
 isn't configured to be in the data-path, the proposed link-local (only)
-next hops MUST not be reflected.<a href="#section-3-4" class="pilcrow">¶</a></p>
+next hops MUST NOT be reflected.<a href="#section-3-4" class="pilcrow">¶</a></p>
 <p id="section-3-5">A single (only) link-local next hop address needs to always be reset as
 next hop self when passed to another link.<a href="#section-3-5" class="pilcrow">¶</a></p>
 </section>
 <section id="section-4">
-      <h2 id="name-receiver-processing-of-ipv6">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-receiver-processing-of-ipv6" class="section-name selfRef">Receiver Processing of IPv6 Link-Local Forwarding Addresses</a>
+      <h2 id="name-receiver-processing-of-ipv6-">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-receiver-processing-of-ipv6-" class="section-name selfRef">Receiver Processing of IPv6 Link-Local Forwarding Addresses</a>
       </h2>
 <p id="section-4-1">On receiving an MP_REACH_NLRI with a Next Hop length of 16, implementations
 SHOULD form the forwarding information using the IPv6 next hop contained in
@@ -1495,8 +1493,8 @@ against the local IPv6 neighbor table to determine if it is appropriate
 for any particular peering session.<a href="#section-4-3" class="pilcrow">¶</a></p>
 </section>
 <section id="section-5">
-      <h2 id="name-error-handling">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-error-handling" class="section-name selfRef">Error handling</a>
+      <h2 id="name-error-handling-2">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-error-handling-2" class="section-name selfRef">Error handling</a>
       </h2>
 <p id="section-5-1">A BGP speaker receiving an MP_REACH_NLRI with the length of the
 Next Hop Field set to 32, where the update contains anything other than
@@ -1529,15 +1527,15 @@ a local configuration option to terminate the peering session until manual
 intervention is initiated.<a href="#section-5-3" class="pilcrow">¶</a></p>
 </section>
 <section id="section-6">
-      <h2 id="name-acknowledgements">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
+      <h2 id="name-acknowledgements-2">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-acknowledgements-2" class="section-name selfRef">Acknowledgements</a>
       </h2>
 <p id="section-6-1">The authors would like to thank Vipin Kumar, Dinesh Dutt, Jeff Haas, and
 for their contributions to this draft.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 <section id="section-7">
-      <h2 id="name-iana-considerations">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      <h2 id="name-iana-considerations-2">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations-2" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <p id="section-7-1">This memo requests IANA assign a number from the "Error Subcodes"
 registry defined in the IANA Considerations section in
@@ -1547,8 +1545,8 @@ error subcode, code (TBA), with a value of
 <p id="section-7-2">Also, IANA is requested to assign a capability number to the same.<a href="#section-7-2" class="pilcrow">¶</a></p>
 </section>
 <section id="section-8">
-      <h2 id="name-security-considerations">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      <h2 id="name-security-considerations-2">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations-2" class="section-name selfRef">Security Considerations</a>
       </h2>
 <p id="section-8-1">The mechanism described in this draft can be used as a component of ZTP for
 building BGP adjacencies across point-to-point links. This method, then, can be
@@ -1574,12 +1572,12 @@ with an unreachable NEXT_HOP to disable the peering session over which
 the invalid NEXT_HOP was received pending manual intervention.<a href="#section-8-4" class="pilcrow">¶</a></p>
 </section>
 <section id="section-9">
-      <h2 id="name-references">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references" class="section-name selfRef">References</a>
+      <h2 id="name-references-2">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references-2" class="section-name selfRef">References</a>
       </h2>
 <section id="section-9.1">
-        <h3 id="name-normative-references">
-<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        <h3 id="name-normative-references-2">
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references-2" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2545">[RFC2545]</dt>
@@ -1621,8 +1619,8 @@ the invalid NEXT_HOP was received pending manual intervention.<a href="#section-
 </dl>
 </section>
 <section id="section-9.2">
-        <h3 id="name-informative-references">
-<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        <h3 id="name-informative-references-2">
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references-2" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="correctly">[correctly]</dt>
@@ -1638,8 +1636,8 @@ the invalid NEXT_HOP was received pending manual intervention.<a href="#section-
 </section>
 <div id="authors-addresses">
 <section id="appendix-A">
-      <h2 id="name-authors-addresses">
-<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      <h2 id="name-authors-addresses-2">
+<a href="#name-authors-addresses-2" class="section-name selfRef">Authors' Addresses</a>
       </h2>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Russ White</span></div>

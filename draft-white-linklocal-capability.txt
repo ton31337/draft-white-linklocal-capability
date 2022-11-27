@@ -5,14 +5,14 @@
 Interdomain Routing                                           R.W. White
 Internet-Draft                                          Juniper Networks
 Intended status: Standards Track                           J.T. Tantsura
-Expires: 30 November 2022                                      Microsoft
+Expires: 31 May 2023                                           Microsoft
                                                            D.A. Abraitis
                                                                Hostinger
-                                                                May 2022
+                                                        27 November 2022
 
 
                  Link-Local Next Hop Capability for BGP
-                  draft-white-linklocal-capability-01
+                  draft-white-linklocal-capability-02
 
 Abstract
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-White, et al.           Expires 30 November 2022                [Page 1]
+White, et al.              Expires 31 May 2023                  [Page 1]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+Internet-Draft   Link-Local Next Hop Capability for BGP    November 2022
 
 
    Internet-Drafts are draft documents valid for a maximum of six months
@@ -63,7 +63,7 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 November 2022.
+   This Internet-Draft will expire on 31 May 2023.
 
 Copyright Notice
 
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-White, et al.           Expires 30 November 2022                [Page 2]
+White, et al.              Expires 31 May 2023                  [Page 2]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+Internet-Draft   Link-Local Next Hop Capability for BGP    November 2022
 
 
    for forwarding purposes.
@@ -165,9 +165,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
 
 
-White, et al.           Expires 30 November 2022                [Page 3]
+White, et al.              Expires 31 May 2023                  [Page 3]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+Internet-Draft   Link-Local Next Hop Capability for BGP    November 2022
 
 
    Existing implementations of using a BGP next hop over an IPv6 link-
@@ -217,13 +217,13 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
    For internal BGP peers configured as a route-reflector, when route-
    reflector isn't configured to be in the data-path, the proposed link-
-   local (only) next hops MUST not be reflected.
+   local (only) next hops MUST NOT be reflected.
 
 
 
-White, et al.           Expires 30 November 2022                [Page 4]
+White, et al.              Expires 31 May 2023                  [Page 4]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+Internet-Draft   Link-Local Next Hop Capability for BGP    November 2022
 
 
    A single (only) link-local next hop address needs to always be reset
@@ -277,9 +277,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
 
 
-White, et al.           Expires 30 November 2022                [Page 5]
+White, et al.              Expires 31 May 2023                  [Page 5]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+Internet-Draft   Link-Local Next Hop Capability for BGP    November 2022
 
 
    If the Next Hop field is malformed, the implementation MUST handle
@@ -333,9 +333,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
 
 
-White, et al.           Expires 30 November 2022                [Page 6]
+White, et al.              Expires 31 May 2023                  [Page 6]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+Internet-Draft   Link-Local Next Hop Capability for BGP    November 2022
 
 
    Operators SHOULD carefully consider security when deploying link-
@@ -389,9 +389,9 @@ Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
 
 
 
-White, et al.           Expires 30 November 2022                [Page 7]
+White, et al.              Expires 31 May 2023                  [Page 7]
 
-Internet-Draft   Link-Local Next Hop Capability for BGP         May 2022
+Internet-Draft   Link-Local Next Hop Capability for BGP    November 2022
 
 
    [RFC5549]  Le Faucheur, F. and E. Rosen, "Advertising IPv4 Network
@@ -445,4 +445,4 @@ Authors' Addresses
 
 
 
-White, et al.           Expires 30 November 2022                [Page 8]
+White, et al.              Expires 31 May 2023                  [Page 8]
